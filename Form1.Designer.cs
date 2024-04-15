@@ -33,29 +33,32 @@ namespace L4 {
             addBtn = new Button();
             saveToTxtBtn = new Button();
             saveFileDialog1 = new SaveFileDialog();
+            editBtn = new Button();
+            debugLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(200, 33);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(175, 25);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(701, 524);
+            dataGridView1.Size = new Size(613, 393);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellValidating += dataGridView_CellValidating;
             dataGridView1.DataError += dataGridView1_DataError;
             // 
             // updateBtn
             // 
-            updateBtn.Location = new Point(14, 88);
-            updateBtn.Margin = new Padding(3, 4, 3, 4);
+            updateBtn.Location = new Point(12, 66);
             updateBtn.Name = "updateBtn";
-            updateBtn.Size = new Size(170, 31);
+            updateBtn.Size = new Size(149, 23);
             updateBtn.TabIndex = 2;
             updateBtn.Text = "Обновить таблицу";
             updateBtn.UseVisualStyleBackColor = true;
@@ -63,10 +66,9 @@ namespace L4 {
             // 
             // saveBtn
             // 
-            saveBtn.Location = new Point(14, 190);
-            saveBtn.Margin = new Padding(3, 4, 3, 4);
+            saveBtn.Location = new Point(12, 169);
             saveBtn.Name = "saveBtn";
-            saveBtn.Size = new Size(170, 51);
+            saveBtn.Size = new Size(149, 38);
             saveBtn.TabIndex = 5;
             saveBtn.Text = "Сохранить в базу данных";
             saveBtn.UseVisualStyleBackColor = true;
@@ -74,10 +76,9 @@ namespace L4 {
             // 
             // checkBox1
             // 
-            checkBox1.Location = new Point(14, 328);
-            checkBox1.Margin = new Padding(3, 4, 3, 4);
+            checkBox1.Location = new Point(12, 272);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(179, 65);
+            checkBox1.Size = new Size(157, 49);
             checkBox1.TabIndex = 6;
             checkBox1.Text = "Показать информацию при запуске";
             checkBox1.UseVisualStyleBackColor = true;
@@ -85,10 +86,9 @@ namespace L4 {
             // 
             // infoBtn
             // 
-            infoBtn.Location = new Point(33, 289);
-            infoBtn.Margin = new Padding(3, 4, 3, 4);
+            infoBtn.Location = new Point(29, 243);
             infoBtn.Name = "infoBtn";
-            infoBtn.Size = new Size(113, 31);
+            infoBtn.Size = new Size(99, 23);
             infoBtn.TabIndex = 7;
             infoBtn.Text = "Информация";
             infoBtn.UseVisualStyleBackColor = true;
@@ -96,10 +96,9 @@ namespace L4 {
             // 
             // addBtn
             // 
-            addBtn.Location = new Point(14, 127);
-            addBtn.Margin = new Padding(3, 4, 3, 4);
+            addBtn.Location = new Point(12, 95);
             addBtn.Name = "addBtn";
-            addBtn.Size = new Size(170, 55);
+            addBtn.Size = new Size(149, 41);
             addBtn.TabIndex = 8;
             addBtn.Text = "Добавить новую строку";
             addBtn.UseVisualStyleBackColor = true;
@@ -107,20 +106,41 @@ namespace L4 {
             // 
             // saveToTxtBtn
             // 
-            saveToTxtBtn.Location = new Point(12, 249);
-            saveToTxtBtn.Margin = new Padding(3, 4, 3, 4);
+            saveToTxtBtn.Location = new Point(10, 213);
             saveToTxtBtn.Name = "saveToTxtBtn";
-            saveToTxtBtn.Size = new Size(170, 31);
+            saveToTxtBtn.Size = new Size(149, 23);
             saveToTxtBtn.TabIndex = 10;
             saveToTxtBtn.Text = "Сохранить в .txt файл";
             saveToTxtBtn.UseVisualStyleBackColor = true;
             saveToTxtBtn.Click += saveToTxtBtn_Click;
             // 
+            // editBtn
+            // 
+            editBtn.Location = new Point(12, 142);
+            editBtn.Margin = new Padding(3, 2, 3, 2);
+            editBtn.Name = "editBtn";
+            editBtn.Size = new Size(149, 22);
+            editBtn.TabIndex = 11;
+            editBtn.Text = "Редактировать строку";
+            editBtn.UseVisualStyleBackColor = true;
+            editBtn.Click += editBtn_Click;
+            // 
+            // debugLbl
+            // 
+            debugLbl.AutoSize = true;
+            debugLbl.Location = new Point(22, 320);
+            debugLbl.Name = "debugLbl";
+            debugLbl.Size = new Size(38, 15);
+            debugLbl.TabIndex = 12;
+            debugLbl.Text = "label1";
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
+            Controls.Add(debugLbl);
+            Controls.Add(editBtn);
             Controls.Add(saveToTxtBtn);
             Controls.Add(addBtn);
             Controls.Add(infoBtn);
@@ -128,11 +148,11 @@ namespace L4 {
             Controls.Add(saveBtn);
             Controls.Add(updateBtn);
             Controls.Add(dataGridView1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -145,5 +165,7 @@ namespace L4 {
         private Button addBtn;
         private Button saveToTxtBtn;
         private SaveFileDialog saveFileDialog1;
+        private Button editBtn;
+        private Label debugLbl;
     }
 }
