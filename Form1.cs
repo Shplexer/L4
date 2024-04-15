@@ -217,15 +217,15 @@ namespace L4 {
             }
 
             for (int i = 0; i < tableSize; i++) {
-                debugLbl.Text += $"\n {dataGridIDs[i]} {dbTableIDs.Contains(dataGridIDs[i])} \n";
+                //debugLbl.Text += $"\n {dataGridIDs[i]} {dbTableIDs.Contains(dataGridIDs[i])} \n";
                 if (!dbTableIDs.Contains(dataGridIDs[i])) {
-                    debugLbl.Text += $"\n !!! {dataGridIDs[i]} {dbTableIDs.Contains(dataGridIDs[i])} \n";
+                    //debugLbl.Text += $"\n !!! {dataGridIDs[i]} {dbTableIDs.Contains(dataGridIDs[i])} \n";
                     DataRow newRow = dbTable.NewRow();
                     newRow[0] = dataGridView1.Rows[i].Cells[0].Value;
                     newRow[1] = dataGridView1.Rows[i].Cells[1].Value;
                     newRow[2] = dataGridView1.Rows[i].Cells[2].Value;
                     newRow[3] = dataGridView1.Rows[i].Cells[3].Value;
-                    debugLbl.Text += $"ADDED {newRow[0]} {newRow[1]} {newRow[2]} {newRow[3]} \n";
+                    //debugLbl.Text += $"ADDED {newRow[0]} {newRow[1]} {newRow[2]} {newRow[3]} \n";
                     dbTable.Rows.Add(newRow);
                     AddToDB(newRow);
                 }
@@ -234,15 +234,15 @@ namespace L4 {
                 if (!dataGridIDs.Contains(dbTableIDs[i])) {
                     DeleteFromDB(dbTableIDs[i]);
                     dbTable.Rows.RemoveAt(i);
-                    debugLbl.Text += "DELETED " + dbTableIDs[i] + "\n";
+                    //debugLbl.Text += "DELETED " + dbTableIDs[i] + "\n";
                 }
             }
-            debugLbl.Text += $"{dbTable.Rows.Count} {dataGridView1.Rows.Count} \n";
+           // debugLbl.Text += $"{dbTable.Rows.Count} {dataGridView1.Rows.Count} \n";
 
             for (int i = 0; i < dbTable.Rows.Count; i++) {
                 for (int j = 0; j < dbTable.Columns.Count; j++) {
                     if (!dbTable.Rows[i][j].Equals(dataGridView1.Rows[i].Cells[j].Value)) {
-                        debugLbl.Text += $"UDATED {dbTable.Rows[i][0]} = {dataGridView1.Rows[i].Cells[0].Value} \n {dbTable.Rows[i][1]} = {dataGridView1.Rows[i].Cells[1].Value}\n {dbTable.Rows[i][2]} = {dataGridView1.Rows[i].Cells[2].Value}\n {dbTable.Rows[i][3]} = {dataGridView1.Rows[i].Cells[3].Value} \n";
+                        //debugLbl.Text += $"UDATED {dbTable.Rows[i][0]} = {dataGridView1.Rows[i].Cells[0].Value} \n {dbTable.Rows[i][1]} = {dataGridView1.Rows[i].Cells[1].Value}\n {dbTable.Rows[i][2]} = {dataGridView1.Rows[i].Cells[2].Value}\n {dbTable.Rows[i][3]} = {dataGridView1.Rows[i].Cells[3].Value} \n";
                         UpdateDBRow(dataGridView1.Rows[i]);
                         // You can break here if you only need to know if there is any difference
                     }

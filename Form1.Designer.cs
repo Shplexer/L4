@@ -34,7 +34,6 @@ namespace L4 {
             saveToTxtBtn = new Button();
             saveFileDialog1 = new SaveFileDialog();
             editBtn = new Button();
-            debugLbl = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -70,7 +69,7 @@ namespace L4 {
             saveBtn.Name = "saveBtn";
             saveBtn.Size = new Size(149, 38);
             saveBtn.TabIndex = 5;
-            saveBtn.Text = "Сохранить в базу данных";
+            saveBtn.Text = "Сохранить изменения в базу данных";
             saveBtn.UseVisualStyleBackColor = true;
             saveBtn.Click += saveBtn_Click;
             // 
@@ -125,21 +124,11 @@ namespace L4 {
             editBtn.UseVisualStyleBackColor = true;
             editBtn.Click += editBtn_Click;
             // 
-            // debugLbl
-            // 
-            debugLbl.AutoSize = true;
-            debugLbl.Location = new Point(22, 320);
-            debugLbl.Name = "debugLbl";
-            debugLbl.Size = new Size(38, 15);
-            debugLbl.TabIndex = 12;
-            debugLbl.Text = "label1";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(debugLbl);
             Controls.Add(editBtn);
             Controls.Add(saveToTxtBtn);
             Controls.Add(addBtn);
@@ -152,7 +141,6 @@ namespace L4 {
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -166,6 +154,5 @@ namespace L4 {
         private Button saveToTxtBtn;
         private SaveFileDialog saveFileDialog1;
         private Button editBtn;
-        private Label debugLbl;
     }
 }

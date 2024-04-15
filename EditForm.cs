@@ -87,9 +87,24 @@ namespace L4 {
         }
 
         private void deleteBtn_Click(object sender, EventArgs e) {
-            isDeleted = true;
-            DialogResult = DialogResult.OK;
-            this.Close();
+            // Display a confirmation MessageBox
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirmation", MessageBoxButtons.OKCancel);
+
+            // Check the user's response
+            if (result == DialogResult.OK) {
+                // User clicked Yes, perform corresponding action
+                // Call a function for Yes
+                // Example: DoSomething();
+                isDeleted = true;
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else {
+                isDeleted = false;
+                // User clicked No or closed the MessageBox
+                // Call a function for No or handle accordingly
+                // Example: DoSomethingElse();
+            }
         }
     }
 }
