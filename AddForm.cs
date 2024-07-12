@@ -16,6 +16,7 @@ namespace L4 {
         public DataRow? returnRow { get; private set; }
         public AddForm(SQLiteConnection con) {
             InitializeComponent();
+
             priceNumericBox.Maximum = Decimal.MaxValue;
             ammountNumericBox.Maximum = Decimal.MaxValue;
 
